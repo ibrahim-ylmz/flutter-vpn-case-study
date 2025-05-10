@@ -1,7 +1,7 @@
-import 'package:vpn_case_study/feature/home/datasources/mock_vpn_datasource.dart';
-import 'package:vpn_case_study/feature/home/models/connection_stats.dart';
-import 'package:vpn_case_study/feature/home/models/country.dart';
-import 'package:vpn_case_study/feature/home/repositories/vpn_repository.dart';
+import 'package:vpn_case_study/feature/home/data/datasources/mock_vpn_datasource.dart';
+import 'package:vpn_case_study/feature/home/data/models/connection_stats.dart';
+import 'package:vpn_case_study/feature/home/data/models/country.dart';
+import 'package:vpn_case_study/feature/home/data/repositories/vpn_repository.dart';
 
 /// This class is used to implement the VPN repository
 class VpnRepositoryImpl implements VpnRepository {

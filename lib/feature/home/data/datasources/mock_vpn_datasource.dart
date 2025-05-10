@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:vpn_case_study/feature/home/models/connection_stats.dart';
-import 'package:vpn_case_study/feature/home/models/country.dart';
+import 'package:vpn_case_study/feature/home/data/models/connection_stats.dart';
+import 'package:vpn_case_study/feature/home/data/models/country.dart';
 
 /// This class is used to mock the VPN datasource
 class MockVpnDataSource {

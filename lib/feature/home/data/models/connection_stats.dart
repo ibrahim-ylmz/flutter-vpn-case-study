@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:vpn_case_study/feature/home/models/country.dart';
+import 'package:vpn_case_study/feature/home/data/models/country.dart';
 
 class ConnectionStats extends Equatable {
   final int downloadSpeed;

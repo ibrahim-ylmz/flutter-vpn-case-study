@@ -1,5 +1,5 @@
-import 'package:vpn_case_study/feature/home/models/connection_stats.dart';
-import 'package:vpn_case_study/feature/home/models/country.dart';
+import 'package:vpn_case_study/feature/home/data/models/connection_stats.dart';
+import 'package:vpn_case_study/feature/home/data/models/country.dart';
 
 /// This abstract class is used to define the VPN repository
 abstract class VpnRepository {
