@@ -1,0 +1,41 @@
+name: vpn_case_study
+description: "Vpn Case Study İbrahim Yılmaz"
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State Management
+  flutter_bloc: ^9.1.1
+
+  # Core
+  equatable: ^2.0.7
+  get_it: ^8.0.3
+
+  # UI
+  flutter_svg: ^2.1.0
+
+  # Routing
+  auto_route: ^10.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  very_good_analysis: ^7.0.0
+  build_runner: ^2.4.15
+  auto_route_generator: ^10.0.1
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+
