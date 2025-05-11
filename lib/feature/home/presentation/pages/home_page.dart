@@ -9,6 +9,7 @@ import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/
 import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/connection_status_state.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/country_list/country_list_bloc.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/country_list/country_list_state.dart';
+import 'package:vpn_case_study/feature/home/presentation/widgets/app_drawer.dart';
 import 'package:vpn_case_study/feature/home/presentation/widgets/connection_info_card.dart';
 import 'package:vpn_case_study/feature/home/presentation/widgets/connection_timer.dart';
 import 'package:vpn_case_study/feature/home/presentation/widgets/country_list_item.dart';
@@ -27,6 +28,7 @@ final class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _rotationController;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -46,11 +48,13 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: const AppDrawer(),
       body: Column(
         children: [
           /// Home Header
           HomeHeader(
-            onCategoryPressed: () {},
+            onCategoryPressed: () => _scaffoldKey.currentState?.openDrawer(),
             onPremiumPressed: () {},
             onSearchPressed:
                 () => context.router.push(const CountrySelectionRoute()),
