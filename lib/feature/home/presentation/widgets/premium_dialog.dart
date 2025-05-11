@@ -101,13 +101,13 @@ class PremiumDialog extends StatelessWidget {
     required String description,
   }) {
     final onPrimaryColor = Theme.of(context).colorScheme.onPrimary;
-
+    
     return Row(
       children: [
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: onPrimaryColor..withAlpha((0.2 * 255).toInt()),
+            color: onPrimaryColor.withAlpha((0.2 * 255).toInt()),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(icon, color: onPrimaryColor, size: 24),
@@ -129,7 +129,7 @@ class PremiumDialog extends StatelessWidget {
               Text(
                 description,
                 style: TextStyle(
-                  color: onPrimaryColor..withAlpha((0.8 * 255).toInt()),
+                  color: onPrimaryColor.withAlpha((0.8 * 255).toInt()),
                   fontSize: 14,
                 ),
               ),
