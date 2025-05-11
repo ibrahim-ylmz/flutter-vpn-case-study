@@ -8,8 +8,8 @@ class AppBarItemButton extends StatelessWidget {
     required this.iconPath,
     super.key,
     this.onPressed,
-    this.width = 50,
-    this.height = 50,
+    this.width = 47,
+    this.height = 47,
     this.backgroundColor = const Color(0xFF3B74FF),
     this.padding = const EdgeInsets.all(8),
     this.borderRadius = 12,
@@ -51,8 +51,8 @@ class AppBarItemButton extends StatelessWidget {
         child: Center(
           child: SvgPicture.asset(
             iconPath,
-            width: 30,
-            height: 30,
+            width: 27,
+            height: 27,
             colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
           ),
         ),

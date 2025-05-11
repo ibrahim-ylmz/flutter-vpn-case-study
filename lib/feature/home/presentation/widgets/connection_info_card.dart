@@ -25,12 +25,13 @@ final class ConnectionInfoCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           child: ListTile(
+            dense: true,
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: SvgPicture.asset(
                 country.flag,
-                height: 40,
+                height: 37,
                 fit: BoxFit.cover,
               ),
             ),
@@ -39,33 +40,38 @@ final class ConnectionInfoCard extends StatelessWidget {
                 Text(
                   country.name,
                   style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
             ),
             subtitle: Text(
               country.city.isEmpty ? 'Unknown' : country.city,
-              style: theme.textTheme.bodyMedium,
+              style: theme.textTheme.bodySmall?.copyWith(
+                fontWeight: FontWeight.w300,
+              ),
             ),
             trailing: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   'Stealth',
-                  style: theme.textTheme.bodySmall,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
                 Text(
                   '${stats.connectedCountry!.strength}%',
-                  style: theme.textTheme.bodyMedium!.copyWith(
-                    fontWeight: FontWeight.w700,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ],
             ),
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 3),
         _buildSpeedStats(context),
       ],
     );
@@ -80,7 +86,7 @@ final class ConnectionInfoCard extends StatelessWidget {
             iconAsset: 'assets/icons/ic_import.svg',
             label: 'Download :',
             value: '${stats.downloadSpeed} MB',
-            iconColor: Colors.green,
+            iconColor: const Color(0xFF00D589),
           ),
         ),
         const SizedBox(width: 12),
@@ -106,45 +112,43 @@ final class ConnectionInfoCard extends StatelessWidget {
   }) {
     final theme = Theme.of(context);
     final isDarkMode = theme.brightness == Brightness.dark;
-    
+
     return Card(
-      elevation: isDarkMode ? 0 : 1,
+      elevation: isDarkMode ? 0 : 1, 
       margin: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
         child: Row(
           children: [
             Container(
-              width: 40,
-              height: 40,
-              padding: const EdgeInsets.all(6),
+              width: 35,
+              height: 35,
+              padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: iconColor.withAlpha((0.1 * 255).toInt()),
               ),
               child: SvgPicture.asset(
                 iconAsset,
-                colorFilter: ColorFilter.mode(
-                  iconColor,
-                  BlendMode.srcIn,
-                ),
+                colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   label,
-                  style: theme.textTheme.bodySmall,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
                 Text(
                   value,
                   style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ],

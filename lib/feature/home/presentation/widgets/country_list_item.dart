@@ -31,29 +31,24 @@ class CountryListItem extends StatelessWidget {
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: ListTile(
+        dense: true,
+        horizontalTitleGap: 10,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: SvgPicture.asset(country.flag, height: 40, fit: BoxFit.cover),
+          child: SvgPicture.asset(country.flag, height: 37, fit: BoxFit.cover),
         ),
-        title: Row(
-          children: [
-            Text(
-              country.name,
-              style: theme.textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ],
+        title: Text(
+          country.name,
+          style: theme.textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        subtitle: Row(
-          children: [
-            Text(
-              '${country.locationCount} Locations',
-              style: theme.textTheme.bodyMedium,
-            ),
-            const Spacer(),
-          ],
+        subtitle: Text(
+          '${country.locationCount} Locations',
+          style: theme.textTheme.bodySmall?.copyWith(
+            fontWeight: FontWeight.w300,
+          ),
         ),
         trailing: _buildConnectionButton(context),
       ),
@@ -66,46 +61,42 @@ class CountryListItem extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Material(
-          color:
-              isConnected
-                  ? theme.colorScheme.primary
-                  : theme.colorScheme.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(16),
-          child: InkWell(
-            onTap: onTap,
-            borderRadius: BorderRadius.circular(16),
-            splashColor: Colors.white24,
-            highlightColor: Colors.white10,
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Icon(
-                Icons.power_settings_new_outlined,
-                color:
-                    isConnected
-                        ? theme.colorScheme.onPrimary
-                        : theme.colorScheme.onSurfaceVariant,
-                size: 25,
-              ),
+        IconButton(
+          onPressed: onTap,
+          iconSize: 25,
+          icon: Icon(
+            Icons.power_settings_new_outlined,
+            color:
+                isConnected
+                    ? theme.colorScheme.onPrimary
+                    : theme.colorScheme.onSurfaceVariant,
+          ),
+          style: IconButton.styleFrom(
+            padding: EdgeInsets.zero,
+            backgroundColor:
+                isConnected
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.surfaceContainerHighest,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
             ),
+            minimumSize: const Size(35, 35),
           ),
         ),
-        const SizedBox(width: 8),
-        Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Icon(
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
             Icons.arrow_forward_ios,
             color: theme.colorScheme.onSurfaceVariant,
             size: 25,
+          ),
+          style: IconButton.styleFrom(
+            padding: EdgeInsets.zero,
+            backgroundColor: theme.colorScheme.surfaceContainerHighest,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            minimumSize: const Size(35, 35),
           ),
         ),
       ],

@@ -28,10 +28,11 @@ final class HomeHeader extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
+      clipBehavior: Clip.antiAlias,
       width: double.infinity,
-      decoration: const BoxDecoration(
-        color: Color(0xFF185BFF),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(36),
           bottomRight: Radius.circular(36),
         ),
@@ -51,7 +52,7 @@ final class HomeHeader extends StatelessWidget {
           ),
           Positioned(
             left: 0,
-            top: MediaQuery.of(context).size.height * 0.08,
+            top: MediaQuery.of(context).size.height * 0.045,
             child: Opacity(
               opacity: 0.5,
               child: RotatedBox(
@@ -84,18 +85,14 @@ final class HomeHeader extends StatelessWidget {
                     ),
 
                     // Countries title
-                    const Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 2),
-                        child: Text(
-                          'Countries',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Gilroy',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
+                    Expanded(
+                      child: Text(
+                        'Countries',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 19,
                         ),
                       ),
                     ),

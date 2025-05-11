@@ -53,24 +53,23 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       decoration: InputDecoration(
         hintText: 'Search For Country Or City',
         hintStyle: theme.textTheme.bodyLarge?.copyWith(
-          fontSize: 18,
-          color: theme.hintColor,
+          color: theme.hintColor.withAlpha(100),
         ),
-        suffixIcon: SvgPicture.asset(
-          'assets/icons/ic_search.svg',
-          fit: BoxFit.scaleDown,
-          colorFilter: ColorFilter.mode(
-            theme.colorScheme.onSurfaceVariant,
-            BlendMode.srcIn,
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(10),
+          child: SvgPicture.asset(
+            'assets/icons/ic_search.svg',
+            width: 24,
+            height: 24,
+            colorFilter: ColorFilter.mode(
+              theme.colorScheme.inverseSurface,
+              BlendMode.srcIn,
+            ),
           ),
-        ),
-        prefixIconConstraints: const BoxConstraints(
-          minWidth: 45,
-          minHeight: 45,
         ),
         filled: true,
         fillColor: theme.inputDecorationTheme.fillColor,
-        contentPadding: const EdgeInsets.all(18),
+        contentPadding: const EdgeInsets.all(20),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppConstants.cardRadius),
           borderSide: BorderSide.none,

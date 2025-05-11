@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vpn_case_study/core/navigation/app_router.dart';
-import 'package:vpn_case_study/core/utility/constants/app_constants.dart';
 import 'package:vpn_case_study/feature/home/data/models/country.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/connection_status_bloc.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/connection_status_event.dart';
@@ -67,11 +66,12 @@ class _HomePageState extends State<HomePage>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 /// Connection Info Card
-                Expanded(child: _buildConnectionInfoCard()),
+                Expanded(flex: 8, child: _buildConnectionInfoCard()),
 
                 /// Free Locations List
                 const SizedBox(height: 24),
                 Expanded(
+                  flex: 9,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: _buildFreeLocationsList(),
@@ -142,10 +142,7 @@ class _HomePageState extends State<HomePage>
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: _buildFreeLocationsHeader(state, context),
-              ),
+              _buildFreeLocationsHeader(state, context),
               Expanded(
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
@@ -173,13 +170,12 @@ class _HomePageState extends State<HomePage>
       children: [
         Text(
           'Free Locations (${state.freeLocations.length})',
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: AppConstants.textGrey,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.w300,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
-        const Icon(Icons.info, color: AppConstants.textGrey),
+        Icon(Icons.info, color: Theme.of(context).hintColor.withAlpha(100)),
       ],
     );
   }

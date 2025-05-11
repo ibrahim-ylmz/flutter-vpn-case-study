@@ -20,16 +20,16 @@ final class ConnectionTimer extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'Connecting Time',
-          style: TextStyle(color: Color(0xFF666666), fontSize: 14),
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
         Text(
           _formatDuration(duration),
-          style: const TextStyle(
-            color: Color(0xFF333333),
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ],
