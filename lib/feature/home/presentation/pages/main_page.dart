@@ -17,7 +17,7 @@ final class MainPage extends StatelessWidget {
     /// It contains the bottom navigation bar
     /// and the tabs router
     return AutoTabsRouter(
-      routes: const [HomeRoute(), StatisticsRoute()],
+      routes: const [HomeRoute(), StatisticsRoute(), SettingsRoute()],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(

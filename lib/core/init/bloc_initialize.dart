@@ -5,6 +5,7 @@ import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/
 import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/connection_status_event.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/country_list/country_list_bloc.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/country_list/country_list_event.dart';
+import 'package:vpn_case_study/feature/home/presentation/bloc/theme_bloc/theme_bloc.dart';
 
 /// This class is used to initialize the Bloc providers
 class BlocInitialize extends StatelessWidget {
@@ -27,6 +28,7 @@ class BlocInitialize extends StatelessWidget {
                   sl<ConnectionStatusBloc>()
                     ..add(const InitializeConnectionStatusEvent()),
         ),
+        BlocProvider<ThemeBloc>(create: (_) => sl<ThemeBloc>()),
       ],
       child: child,
     );

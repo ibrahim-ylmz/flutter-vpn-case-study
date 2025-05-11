@@ -4,6 +4,7 @@ import 'package:vpn_case_study/feature/home/data/repositories/vpn_repository.dar
 import 'package:vpn_case_study/feature/home/data/repositories/vpn_repository_impl.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/connection_status_bloc.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/country_list/country_list_bloc.dart';
+import 'package:vpn_case_study/feature/home/presentation/bloc/theme_bloc/theme_bloc.dart';
 
 /// This is the dependency injection container instance
 final sl = GetIt.instance;
@@ -14,5 +15,6 @@ Future<void> init() async {
     ..registerFactory(() => CountryListBloc(sl()))
     ..registerFactory(() => ConnectionStatusBloc(sl()))
     ..registerLazySingleton<VpnRepository>(() => VpnRepositoryImpl(sl()))
-    ..registerLazySingleton(MockVpnDataSource.new);
+    ..registerLazySingleton(MockVpnDataSource.new)
+    ..registerFactory(ThemeBloc.new);
 }
