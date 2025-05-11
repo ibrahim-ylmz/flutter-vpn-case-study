@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:vpn_case_study/feature/home/presentation/pages/country_selection_page.dart';
 import 'package:vpn_case_study/feature/home/presentation/pages/home_page.dart';
 import 'package:vpn_case_study/feature/home/presentation/pages/main_page.dart';
 part 'app_router.gr.dart';
@@ -15,5 +16,6 @@ final class AppRouter extends RootStackRouter {
       path: '/',
       children: [AutoRoute(page: HomeRoute.page, path: 'home', initial: true)],
     ),
+    AutoRoute(page: CountrySelectionRoute.page, path: '/country-selection'),
   ];
 }

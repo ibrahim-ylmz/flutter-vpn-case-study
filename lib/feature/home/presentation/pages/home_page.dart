@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vpn_case_study/core/navigation/app_router.dart';
 import 'package:vpn_case_study/core/utility/constants/app_constants.dart';
 import 'package:vpn_case_study/feature/home/data/models/country.dart';
 import 'package:vpn_case_study/feature/home/presentation/bloc/connection_status/connection_status_bloc.dart';
@@ -51,7 +52,8 @@ class _HomePageState extends State<HomePage>
           HomeHeader(
             onCategoryPressed: () {},
             onPremiumPressed: () {},
-            onSearchPressed: () {},
+            onSearchPressed:
+                () => context.router.push(const CountrySelectionRoute()),
           ),
 
           /// Connection Info Card

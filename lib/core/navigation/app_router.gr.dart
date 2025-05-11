@@ -11,6 +11,22 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [CountrySelectionPage]
+class CountrySelectionRoute extends PageRouteInfo<void> {
+  const CountrySelectionRoute({List<PageRouteInfo>? children})
+    : super(CountrySelectionRoute.name, initialChildren: children);
+
+  static const String name = 'CountrySelectionRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CountrySelectionPage();
+    },
+  );
+}
+
+/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
