@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vpn_case_study/core/navigation/app_router.dart';
 
 @RoutePage()
 /// Main page of the app
@@ -11,9 +12,12 @@ final class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+   
+    /// This page is the main page of the app
+    /// It contains the bottom navigation bar
+    /// and the tabs router
     return AutoTabsRouter(
-      routes: const [],
+      routes: const [HomeRoute()],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
