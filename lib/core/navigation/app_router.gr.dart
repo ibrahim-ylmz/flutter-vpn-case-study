@@ -57,3 +57,19 @@ class MainRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [StatisticsPage]
+class StatisticsRoute extends PageRouteInfo<void> {
+  const StatisticsRoute({List<PageRouteInfo>? children})
+    : super(StatisticsRoute.name, initialChildren: children);
+
+  static const String name = 'StatisticsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const StatisticsPage();
+    },
+  );
+}

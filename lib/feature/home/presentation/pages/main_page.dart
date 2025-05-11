@@ -12,12 +12,12 @@ final class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-   
+
     /// This page is the main page of the app
     /// It contains the bottom navigation bar
     /// and the tabs router
     return AutoTabsRouter(
-      routes: const [HomeRoute()],
+      routes: const [HomeRoute(), StatisticsRoute()],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
