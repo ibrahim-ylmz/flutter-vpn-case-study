@@ -14,6 +14,7 @@ import 'package:vpn_case_study/feature/home/presentation/widgets/connection_info
 import 'package:vpn_case_study/feature/home/presentation/widgets/connection_timer.dart';
 import 'package:vpn_case_study/feature/home/presentation/widgets/country_list_item.dart';
 import 'package:vpn_case_study/feature/home/presentation/widgets/home_header.dart';
+import 'package:vpn_case_study/feature/home/presentation/widgets/premium_dialog.dart';
 
 @RoutePage()
 /// This is the home page of the app
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage>
           /// Home Header
           HomeHeader(
             onCategoryPressed: () => _scaffoldKey.currentState?.openDrawer(),
-            onPremiumPressed: () {},
+            onPremiumPressed: () => PremiumDialog.show(context),
             onSearchPressed:
                 () => context.router.push(const CountrySelectionRoute()),
           ),
